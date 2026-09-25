@@ -1,50 +1,59 @@
-# İstasyon kullanım haritası
+# İstasyon Kullanım Haritası
 
-2025 yıllık yolcu sayılarını İstanbul raylı sistem istasyonları üzerinde gösteren etkileşimli harita.
-Hat çizgileri OpenStreetMap'teki gerçek ray geometrisinden çizilir.
+Bu proje, İstanbul'daki raylı sistem istasyonlarının 2025 yılı yolcu sayılarını etkileşimli bir harita üzerinde gösterir. Hat güzergâhları, OpenStreetMap'ten alınan gerçek ray geometrileri kullanılarak çizilmiştir.
 
-## Açmak
+## Haritayı çalıştırma
 
-`istasyon_kullanim_haritasi.html` dosyasını tarayıcıda açmak yeterli (tek dosya, sunucu gerekmez;
-sadece harita altlığı ve Leaflet için internet bağlantısı gerekir). VS Code'da *Live Server*
-eklentisiyle de açılabilir.
+`istasyon_kullanim_haritasi.html` dosyasını tarayıcıda açmanız yeterli. Harita herhangi bir sunucuya ihtiyaç duymadan çalışır. Yalnızca harita altlığı ve Leaflet için internet bağlantısı gerekir.
 
-## Yeniden üretmek
+İsterseniz projeyi VS Code'daki **Live Server** eklentisiyle de çalıştırabilirsiniz.
+
+## Haritayı yeniden oluşturma
+
+Haritayı mevcut OSM verileriyle yeniden oluşturmak için:
 
 ```bash
-python harita/build_map.py            # önbellekteki OSM verisiyle
-python harita/build_map.py --yenile   # OSM verisini Overpass API'den yeniden indir
+python harita/build_map.py
 ```
 
-Yalnızca Python standart kütüphanesi kullanılır, ek paket gerekmez.
+OSM verilerini Overpass API'den yeniden indirmek isterseniz:
+
+```bash
+python harita/build_map.py --yenile
+```
+
+Projede yalnızca Python'un standart kütüphanesi kullanılıyor. Bu nedenle çalıştırmak için ek bir Python paketi kurmaya gerek yok.
 
 ## Dosyalar
 
 | Dosya | Açıklama |
 |---|---|
-| `build_map.py` | OSM verisini indirir, hat geometrisini ayıklar/sadeleştirir, HTML'i üretir |
-| `template.html` | Harita arayüzü (Leaflet); `__DATA__` ve `__ROUTES__` yer tutucuları doldurulur |
-| `data/istasyonlar.json` | Düzeltilmiş istasyon verisi (ad, hat, ilçe, yıllık yolcu, koordinat, düzeltme notları) |
-| `data/hatlar_osm.geojson` | Hat başına sadeleştirilmiş ray geometrisi (üretilir) |
-| `data/osm_ham.json` | Overpass ham yanıtı, önbellek (git'e eklenmez) |
-| `istasyon_kullanim_haritasi.html` | Üretilen harita |
+| `build_map.py` | OSM verilerini alır, ray geometrilerini ayıklar ve sadeleştirir, ardından harita HTML'ini oluşturur. |
+| `template.html` | Haritanın Leaflet arayüzünü içerir. Veriler ve hat geometrileri oluşturma sırasında şablona eklenir. |
+| `data/istasyonlar.json` | İstasyon adı, hat, ilçe, yıllık yolcu sayısı, koordinat ve yapılan düzeltmeler gibi bilgileri içerir. |
+| `data/hatlar_osm.geojson` | Hatlara ait sadeleştirilmiş ray geometrilerini içerir. Harita oluşturulurken üretilir. |
+| `data/osm_ham.json` | Overpass API'den alınan ham OSM verilerinin önbelleğidir. Git'e eklenmez. |
+| `istasyon_kullanim_haritasi.html` | Kullanıma hazır etkileşimli harita. |
 
-Hat kodu → OSM rota ilişkisi eşlemesi `build_map.py` içindeki `HAT_ROTALARI` sözlüğündedir.
-Bir hat için OSM geometrisi bulunamazsa harita o hattı istasyon sırasına göre düz çizgiyle çizer.
+Hat kodlarının OSM'deki güzergâhlarla eşleştirmesi `build_map.py` içindeki `HAT_ROTALARI` sözlüğünde bulunuyor.
+
+Bir hat için OSM'de uygun bir ray geometrisi bulunamazsa, harita o hattı istasyonların sırasını takip eden düz çizgilerle gösterir.
 
 ## Veri düzeltmeleri
 
-Her istasyonun `fixes` alanı yapılan düzeltmeleri listeler; haritada ilgili istasyonun penceresinde
-sarı kutuda görünür. Başlıcaları:
+İstasyon verilerinde yapılan düzeltmeler her istasyonun `fixes` alanında tutuluyor. Bu bilgiler haritada istasyon seçildiğinde sarı bir kutu içerisinde gösteriliyor.
 
-- Ad düzeltmeleri (ör. `15.tem` → 15 Temmuz, `Itü` → İTÜ-Ayazağa, eksik İ/Ü harfleri)
-- Yanlış ilçe bilgileri
-- Aynı istasyonun çift kaydı birleştirildi (T4 Kiptaş Venezia, M2 Seyrantepe)
-- Hattından 140 m'den uzakta kalan 9 istasyon OSM durak noktasına taşındı
-  (en büyüğü M9 Ataköy, ~800 m), M5 Yamanevler koordinatı düzeltildi
+Veri üzerinde yapılan başlıca düzeltmeler:
+
+- İstasyon adlarındaki yazım hataları düzeltildi. Örneğin `15.tem` → `15 Temmuz`, `Itü` → `İTÜ-Ayazağa` ve eksik Türkçe karakterler.
+- Yanlış ilçe bilgileri düzeltildi.
+- Aynı istasyona ait birden fazla kayıt birleştirildi. Örneğin T4 Kiptaş Venezia ve M2 Seyrantepe.
+- Hat güzergâhından 140 metreden fazla uzak kalan 9 istasyonun koordinatları OSM'deki durak noktalarına göre düzeltildi.
+- Bu düzeltmeler arasındaki en büyük fark M9 Ataköy'de yaklaşık 800 metreydi.
+- M5 Yamanevler'in koordinatı da ayrıca düzeltildi.
 
 ## Kaynaklar
 
-- Yolcu sayıları: İBB Açık Veri Portalı
-- Ray geometrisi ve durak noktaları: © OpenStreetMap katkıcıları (ODbL)
-- Altlık: Esri World Gray Canvas
+- **Yolcu verileri:** İBB Açık Veri Portalı
+- **Ray geometrileri ve durak noktaları:** © OpenStreetMap katkıcıları (ODbL)
+- **Harita altlığı:** Esri World Gray Canvas
