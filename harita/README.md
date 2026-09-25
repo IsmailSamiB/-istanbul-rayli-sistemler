@@ -1,6 +1,15 @@
-# İstasyon Kullanım Haritası
+## İstasyon kullanım haritası
 
-Bu proje, İstanbul'daki raylı sistem istasyonlarının 2025 yılı yolcu sayılarını etkileşimli bir harita üzerinde gösterir. Hat güzergâhları, OpenStreetMap'ten alınan gerçek ray geometrileri kullanılarak çizilmiştir.
+**[Haritayı aç](https://ismailsamib.github.io/istanbul-rayli-sistemler/harita/istasyon_kullanim_haritasi.html)**
+
+293 istasyonun 2025 yılı yolcu sayılarını gösteren etkileşimli harita. Dairelerin büyüklüğü yolcu sayısını (karekök ölçeği), renkler ise hatları gösteriyor. Hat adına tıklayarak yalnızca o hattı görebilirsiniz. Hat güzergâhları, duraklar arasındaki gerçek ray geometrileri kullanılarak OpenStreetMap verilerinden oluşturuldu.
+
+İstasyon koordinatlarının çoğu İBB verisindeki orijinal koordinatlardan alındı. Ray güzergâhından 140 metreden fazla sapan 9 istasyonun konumu, OpenStreetMap'teki durak noktalarına göre düzeltildi. En büyük fark M9 Ataköy'de yaklaşık 800 metreydi. İstasyon adlarındaki yazım hatları ve yanlış kayıtlar da ayrıca düzeltildi.
+
+Haritanın nasıl oluşturulduğuna dair ayrıntılar `harita/README.md` dosyasında bulunuyor.
+
+Altlık: Esri World Gray Canvas (açık/koyu tema).  
+Kaynaklar: Yolcu verileri İBB Açık Veri Portalı; ray geometrileri ve durak noktaları © OpenStreetMap katkıcıları (ODbL).
 
 ## Haritayı çalıştırma
 
