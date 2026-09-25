@@ -2,3 +2,6 @@ venv/
 .vs/
 *.csv
 *.xlsx
+# harita: OSM ham önbelleği (build_map.py yeniden indirir)
+harita/data/osm_ham.json
+__pycache__/
