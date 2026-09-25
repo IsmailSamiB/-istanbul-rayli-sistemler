@@ -66,13 +66,6 @@ Haritanın nasıl oluşturulduğuna dair ayrıntılar `harita/README.md` dosyas�
 
 Altlık: Esri World Gray Canvas (açık/koyu tema).  
 Kaynaklar: Yolcu verileri İBB Açık Veri Portalı; ray geometrileri ve durak noktaları © OpenStreetMap katkıcıları (ODbL).
-![Şehir merkezinde istasyon yoğunluğu](figures/harita_merkez.png)
-
-Hat çizgileri istasyon koordinatlarından oluşturulan yaklaşık bağlantılar. Gerçek ray güzergâhlarını göstermiyor.
-
-Koordinatların 247'sini İBB verisindeki orijinal koordinatlardan aldım ve bozuk formatları düzelttim. Eksik olan 46 koordinatı ise Wikidata, OpenStreetMap ve diğer açık kaynaklardan tamamladım.
-
-Altlık olarak Esri World Dark Gray Canvas kullanıldı.
 
 ## Veri
 
