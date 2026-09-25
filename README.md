@@ -69,10 +69,12 @@ Kaynaklar: Yolcu verileri İBB Açık Veri Portalı; ray geometrileri ve durak n
 
 ## Veri
 
-Projede iki veri seti kullandım. İkisi de [İBB Açık Veri Portalı](https://data.ibb.gov.tr)'ndan alındı:
+Projede iki veri seti kullandım. 
 
-- 2025 yılı, istasyon ve yaş grubu bazında günlük yolcu sayıları (678.010 satır, 23 hat)
-- Raylı sistemlerde hat bazında aylık sefer sayıları (2017-2025)
+- [Raylı Sistemler İstasyon Bazlı Yolcu ve Yolculuk Sayıları](https://data.ibb.gov.tr/dataset/rayli-sistemler-istasyon-bazli-yolcu-ve-yolculuk-sayilari) (2025 dosyası; istasyon ve yaş grubu bazında günlük yolcu sayıları, 678.010 satır, 23 hat)
+- [Raylı Sistemler Günlük, Aylık, Yıllık Hat Bazlı Sefer Sayıları](https://data.ibb.gov.tr/dataset/rayli-sistemler-gunluk-aylik-yillik-hat-bazli-sefer-sayilari) (hat bazında aylık sefer sayıları, 2017-2025)
+
+Veriler İstanbul Büyükşehir Belediyesi Açık Veri Lisansı ile yayımlanmıştır.
 
 Veri dosyaları boyutları nedeniyle repoya eklenmedi. Projeyi çalıştırmak için bu dosyaları portaldan indirip proje klasörüne koymanız gerekiyor.
 
