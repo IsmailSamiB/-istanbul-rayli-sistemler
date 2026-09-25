@@ -127,7 +127,7 @@ harita/            istasyon kullanım haritası ve onu oluşturan script
 ```text
 python -m venv venv
 venv\Scripts\activate
-pip install pandas openpyxl matplotlib scipy ipykernel
+pip install -r requirements.txt
 python clean_data.py
 python clean_trips.py
 ```
