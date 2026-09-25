@@ -69,15 +69,15 @@ Kaynaklar: Yolcu verileri İBB Açık Veri Portalı; ray geometrileri ve durak n
 
 ## Veri
 
-Projede iki veri seti kullandım. 
+Projede İBB Açık Veri Portalı'ndaki iki veri setini kullandım:
 
-- [Raylı Sistemler İstasyon Bazlı Yolcu ve Yolculuk Sayıları](https://data.ibb.gov.tr/dataset/rayli-sistemler-istasyon-bazli-yolcu-ve-yolculuk-sayilari) (2025 dosyası; istasyon ve yaş grubu bazında günlük yolcu sayıları, 678.010 satır, 23 hat)
-- [Raylı Sistemler Günlük, Aylık, Yıllık Hat Bazlı Sefer Sayıları](https://data.ibb.gov.tr/dataset/rayli-sistemler-gunluk-aylik-yillik-hat-bazli-sefer-sayilari) (hat bazında aylık sefer sayıları, 2017-2025)
+- [Yaş Grubuna Göre Raylı Sistemler İstasyon Bazlı Yolcu ve Yolculuk Sayıları](https://data.ibb.gov.tr/dataset/yas-grubuna-gore-rayli-sistemler-istasyon-bazli-yolcu-ve-yolculuk-sayilari) (2025 dosyası; istasyon ve yaş grubu bazında günlük yolcu sayıları, 678.010 satır, 23 hat)
+- [Raylı Sistemler Hat Bazlı Sefer Sayıları](https://data.ibb.gov.tr/dataset/rayli-sistemler-hat-bazli-sefer-sayilari) (hat bazında aylık sefer sayıları, 2017-2025)
 
 Veriler İstanbul Büyükşehir Belediyesi Açık Veri Lisansı ile yayımlanmıştır.
 
-Veri dosyaları boyutları nedeniyle repoya eklenmedi. Projeyi çalıştırmak için bu dosyaları portaldan indirip proje klasörüne koymanız gerekiyor.
-
+Veri dosyaları boyutları nedeniyle repoya eklenmedi. 
+Projeyi çalıştırmak için iki dosyayı portaldan indirip adlarını değiştirmeden proje klasörüne koymanız yeterli.
 ## Veri temizliği
 
 - Koordinat sütunları bozuktu; ondalık noktaları kaymıştı. Analizde de kullanılmadıkları için çıkardım.
@@ -122,6 +122,7 @@ clean_trips.py     sefer verisini temizler, trips_clean.csv üretir
 analiz.ipynb       tüm analizler ve grafikler
 figures/           grafikler
 harita/            istasyon kullanım haritası ve onu oluşturan script
+requirements.txt   gerekli Python paketleri
 ```
 
 ## Nasıl çalıştırılır
@@ -135,3 +136,4 @@ python clean_trips.py
 ```
 
 Ardından `analiz.ipynb` dosyasını açıp hücreleri çalıştırmak yeterli.
+Haritayı yeniden oluşturmak için adımlar harita/README.md dosyasında.
