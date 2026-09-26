@@ -19,6 +19,7 @@ Projede temel olarak şu sorulara cevap aradım:
 ## Bağlantılar
 
 - **[İnteraktif istasyon kullanım haritası](https://ismailsamib.github.io/istanbul-rayli-sistemler/harita/istasyon_kullanim_haritasi.html)**
+- **[Kod Hattı: bu projenin kodlarıyla etkileşimli Python öğreticisi](https://ismailsamib.github.io/istanbul-rayli-sistemler/ogretici/)**
 - **[İBB Açık Veri Portalı](https://data.ibb.gov.tr)**
 
 ## Öne çıkanlar
@@ -122,6 +123,7 @@ clean_trips.py     sefer verisini temizler, trips_clean.csv üretir
 analiz.ipynb       tüm analizler ve grafikler
 figures/           grafikler
 harita/            istasyon kullanım haritası ve onu oluşturan script
+ogretici/          etkileşimli Python öğreticisi (GitHub Pages)
 requirements.txt   gerekli Python paketleri
 ```
 
